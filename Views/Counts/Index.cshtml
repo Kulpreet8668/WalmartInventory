@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WalmartInventory.Models.Count>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Enter the Detail for Counting</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.userNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.departName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.countTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.departName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.countTotal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CountId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CountId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CountId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

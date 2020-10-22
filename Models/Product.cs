@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,9 +13,10 @@ namespace WalmartInventory.Models
         public int DepartmentId { get; set; } // forign key
 
         public String Name { get; set; }
-
+        [Required]
         public String ShelfName { get; set; }
-
+        
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public double RetailPrice { get; set; }
         
         public Department Department { get; set; }
