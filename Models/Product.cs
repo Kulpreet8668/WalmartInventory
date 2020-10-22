@@ -9,14 +9,14 @@ namespace WalmartInventory.Models
     {
         public int ProductId { get; set; } // primary key
 
-        public Department DepartmentId { get; set; } // forign key
+        public int DepartmentId { get; set; } // forign key
 
         public String Name { get; set; }
 
-        public int ShelfName { get; set; }
+        public String ShelfName { get; set; }
 
-        public decimal RetailPrice { get; set; }
-
+        public double RetailPrice { get; set; }
+        
         public Department Department { get; set; }
 
         //this connect bw depart and product

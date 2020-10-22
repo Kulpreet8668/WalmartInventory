@@ -11,7 +11,7 @@ namespace WalmartInventory.Models
         public int ManagerId { get; set; }
         public int userNumber { get; set; }
         public int departName { get; set; }
-        public decimal countTotal { get; set; }
+        public double countTotal { get; set; }
 
         //child reference to count detail
 
