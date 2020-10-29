@@ -226,6 +226,9 @@ namespace WalmartInventory.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<double>("ManagerId")
                         .HasColumnType("float");
 
@@ -239,6 +242,8 @@ namespace WalmartInventory.Data.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("CountId");
+
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Counts");
                 });
@@ -358,6 +363,16 @@ namespace WalmartInventory.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WalmartInventory.Models.Count", b =>
+                {
+                    b.HasOne("WalmartInventory.Models.Department", "Department")
+                        .WithMany("Counts")
+                        .HasForeignKey("DepartmentId")
+                        .HasConstraintName("FK_Counts_DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

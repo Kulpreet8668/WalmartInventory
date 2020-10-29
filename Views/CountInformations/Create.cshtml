@@ -1,5 +1,5 @@
 ﻿@model WalmartInventory.Models.CountInformation
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 @{
     ViewData["Title"] = "Create";
 }
@@ -8,25 +8,25 @@
 
 <h4>CountInformation</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row font-italic text-success h3">
+    <div class="col-md-6">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger  "></div>
             <div class="form-group">
-                <label asp-for="ProductId" class="control-label"></label>
-                <select asp-for="ProductId" class ="form-control" asp-items="ViewBag.ProductId"></select>
+                <label asp-for="ProductId" class="control-label h4"></label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="CountId" class="control-label"></label>
-                <select asp-for="CountId" class ="form-control" asp-items="ViewBag.CountId"></select>
+                <label asp-for="CountId" class="control-label h4"></label>
+                <select asp-for="CountId" class="form-control" asp-items="ViewBag.CountId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Onhand" class="control-label"></label>
+                <label asp-for="Onhand" class="control-label h4"></label>
                 <input asp-for="Onhand" class="form-control" />
                 <span asp-validation-for="Onhand" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success h4" />
             </div>
         </form>
     </div>

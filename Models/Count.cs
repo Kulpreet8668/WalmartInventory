@@ -9,12 +9,12 @@ namespace WalmartInventory.Models
     {
         public int CountId { get; set; } // pk
         public double ManagerId { get; set; }
+      
         public double countTotal { get; set; }
         public double userNumber { get; set; }
         public String departName { get; set; }
-        
 
-        //child reference to count detail
+      
 
         public List<CountInformation> CountInformations { get; set; }
 

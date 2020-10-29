@@ -17,6 +17,7 @@ namespace WalmartInventory.Models
         public String ShelfName { get; set; }
         
         [DisplayFormat(DataFormatString = "{0:c}")]
+
         public double RetailPrice { get; set; }
         
         public Department Department { get; set; }

@@ -32,10 +32,11 @@ namespace WalmartInventory.Data
                 .HasConstraintName("FK_Products_DepartmentId");
             // it specify the name of fk for a relationship
 
+            
 
             builder.Entity<CountInformation>()
                 .HasOne(p => p.Product)
-                // every product just have one department
+              
                 .WithMany(d => d.CountInformations)
                 .HasForeignKey(p => p.ProductId)
                 .HasConstraintName("FK_CountInformations_ProductId");
@@ -43,7 +44,7 @@ namespace WalmartInventory.Data
 
             builder.Entity<CountInformation>()
                    .HasOne(p => p.Count)
-                   // every product just have one department
+                   
                    .WithMany(d => d.CountInformations)
                    .HasForeignKey(p => p.CountId)
                    .HasConstraintName("FK_CountInformations_CountId");
