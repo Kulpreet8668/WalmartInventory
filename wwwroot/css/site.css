@@ -13,14 +13,14 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 86px;
+    font-size: 5px;
     background-color: #0377d6;
 }
 
 /* Provide sufficient contrast against white background */
-a {
+/*a {
     color: #0377d6;
-}
+}*/
 .section
 {
     color:antiquewhite;
@@ -32,12 +32,12 @@ a {
 
 }
 
-body {
+/*body {
     background-color: #0377d6;
-}
-body {
+}*/
+/*body {
     background-color: cornflowerblue;
-}
+}*/
 
 div.navbar-collapse
 {
@@ -59,9 +59,9 @@ div.navbar-collapse
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   font-size: 100px;
-}
+}*/
 @media (min-width: 768px) {
   html {
     font-size: 16px;
