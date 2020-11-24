@@ -22,7 +22,7 @@ namespace WalmartInventory.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.products.Include(p => p.Department);
+            var applicationDbContext = _context.Products.Include(p => p.Department);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace WalmartInventory.Controllers
                 return NotFound();
             }
 
-            var product = await _context.products
+            var product = await _context.Products
                 .Include(p => p.Department)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
@@ -77,7 +77,7 @@ namespace WalmartInventory.Controllers
                 return NotFound();
             }
 
-            var product = await _context.products.FindAsync(id);
+            var product = await _context.Products.FindAsync(id);
             if (product == null)
             {
                 return NotFound();
@@ -130,7 +130,7 @@ namespace WalmartInventory.Controllers
                 return NotFound();
             }
 
-            var product = await _context.products
+            var product = await _context.Products
                 .Include(p => p.Department)
                 .FirstOrDefaultAsync(m => m.ProductId == id);
             if (product == null)
@@ -146,15 +146,15 @@ namespace WalmartInventory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.products.FindAsync(id);
-            _context.products.Remove(product);
+            var product = await _context.Products.FindAsync(id);
+            _context.Products.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-            return _context.products.Any(e => e.ProductId == id);
+            return _context.Products.Any(e => e.ProductId == id);
         }
     }
 }

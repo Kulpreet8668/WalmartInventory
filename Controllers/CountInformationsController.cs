@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using WalmartInventory.Models;
 
 namespace WalmartInventory.Controllers
 {
+
+    [Authorize(Roles = "Administrator, Customer")]
     public class CountInformationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -50,7 +53,7 @@ namespace WalmartInventory.Controllers
         public IActionResult Create()
         {
             ViewData["CountId"] = new SelectList(_context.Counts, "CountId", "CountId");
-            ViewData["ProductId"] = new SelectList(_context.products, "ProductId", "ShelfName");
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ShelfName");
             return View();
         }
 
@@ -68,7 +71,7 @@ namespace WalmartInventory.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CountId"] = new SelectList(_context.Counts, "CountId", "CountId", countInformation.CountId);
-            ViewData["ProductId"] = new SelectList(_context.products, "ProductId", "ShelfName", countInformation.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ShelfName", countInformation.ProductId);
             return View(countInformation);
         }
 
@@ -86,7 +89,7 @@ namespace WalmartInventory.Controllers
                 return NotFound();
             }
             ViewData["CountId"] = new SelectList(_context.Counts, "CountId", "CountId", countInformation.CountId);
-            ViewData["ProductId"] = new SelectList(_context.products, "ProductId", "ShelfName", countInformation.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ShelfName", countInformation.ProductId);
             return View(countInformation);
         }
 
@@ -123,7 +126,7 @@ namespace WalmartInventory.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CountId"] = new SelectList(_context.Counts, "CountId", "CountId", countInformation.CountId);
-            ViewData["ProductId"] = new SelectList(_context.products, "ProductId", "ShelfName", countInformation.ProductId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "ProductId", "ShelfName", countInformation.ProductId);
             return View(countInformation);
         }
 

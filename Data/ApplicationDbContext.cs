@@ -15,7 +15,7 @@ namespace WalmartInventory.Data
         public DbSet<Count> Counts { get; set; }
         public DbSet<CountInformation> countInformations { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Product> products { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         // override the model creating method
         protected override void OnModelCreating(ModelBuilder builder)

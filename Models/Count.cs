@@ -14,9 +14,7 @@ namespace WalmartInventory.Models
         public double userNumber { get; set; }
         public String departName { get; set; }
 
-      
-
-        public List<CountInformation> CountInformations { get; set; }
+      public List<CountInformation> CountInformations { get; set; }
 
 
 
