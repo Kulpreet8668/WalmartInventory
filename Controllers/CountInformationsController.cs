@@ -12,7 +12,7 @@ using WalmartInventory.Models;
 namespace WalmartInventory.Controllers
 {
 
-    [Authorize(Roles = "Administrator, Customer")]
+    [Authorize(Roles = "Administrator")]
     public class CountInformationsController : Controller
     {
         private readonly ApplicationDbContext _context;
