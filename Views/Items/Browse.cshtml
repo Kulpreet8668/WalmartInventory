@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<WalmartInventory.Models.Product>
+<h2>Now you are inside the department</h2>
+
+@if (ViewBag.Item != null)
+{
+    <h1>@ViewBag.item</h1>
+}
+
+<section class="row card-group">
+
+    @foreach (var p in Model)
+    {<!--css from https://getbootstrap.com/docs/4.0/components/card/-->
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><b>@p.Name</b></h5>
+
+                <h6>
+                    @String.Format("{0:c}", p.RetailPrice)
+                </h6>
+                <div>
+                    <a class="btn btn-secondary" asp-controller="Products" asp-action="Details" asp-route-id="@p.ProductId">Get more detail</a>
+                   
+                </div>
+
+               @*here form is created to select product*@ 
+
+            <form method="post" action="/Items/AddToCart">
+                <input type="hidden" id="ProductId" name="ProductId" value="@p.ProductId" />
+                <div class="form-group h5">
+                    <label class="control-label" for="Quantity">Quantity to add:</label>
+                    <input name="Quantity" id="Quantity" required min="1" max="1000" type="number" class="input-small" />
+                </div>
+                <button class="btn btn-danger">Add to Cart</button>
+                @*<a class="btn btn-danger" asp-controller="items" asp-action="Cart" >add to cart</a>*@
+
+            </form>
+            </div>
+        </div>
+
+
+
+    }
+
+
+</section>
+

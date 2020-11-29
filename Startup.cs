@@ -33,6 +33,9 @@ namespace WalmartInventory
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            // to store identities for the shop cart
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -58,6 +61,11 @@ namespace WalmartInventory
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+
+            // get enable session to get store identities when shop
+            app.UseSession();
+            
 
             app.UseEndpoints(endpoints =>
             {

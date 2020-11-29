@@ -1,58 +1,52 @@
-﻿@model IEnumerable<WalmartInventory.Models.Product>
+﻿@model IEnumerable<WalmartInventory.Models.Department>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Items available at store </h1>
+<h1>Items</h1>
+<section class="row card-group">
+    @foreach (var item in Model)
+    {<!--css from https://getbootstrap.com/docs/4.0/components/card/-->
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><b>@item.Name</b></h5>
+               
+                <a class="btn btn-primary" asp-controller="Items" asp-action="browse" asp-route-id="@item.DepartmentId">Product</a>
+            </div>
+        </div>
+
+
+
+    }
+
+
+</section>
 
 @*<p>
     <a asp-action="Create">Create New</a>
-</p>*@
-@*<div class="row font-italic text-success h3">*@
-    <div class="col-md-12">
-        <table class="table text-success h5">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ShelfName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RetailPrice)
-                    </th>
-                    @*<th>
-                            @Html.DisplayNameFor(model => model.Department)
-                        </th>*@
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ShelfName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RetailPrice)
-                        </td>
-                        @*<td>
-                                @Html.DisplayFor(modelItem => item.Department.Name)
-                            </td>*@
-                        @*<td>
-                                <a asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
-                                <a asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
-                            </td>*@
-                    </tr>
-                }
-            </tbody>
-        </table>
-        </div>
-    @*</div>*@
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepartmentId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DepartmentId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DepartmentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@

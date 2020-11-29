@@ -16,6 +16,7 @@ namespace WalmartInventory.Data
         public DbSet<CountInformation> countInformations { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         // override the model creating method
         protected override void OnModelCreating(ModelBuilder builder)
@@ -48,6 +49,13 @@ namespace WalmartInventory.Data
                    .WithMany(d => d.CountInformations)
                    .HasForeignKey(p => p.CountId)
                    .HasConstraintName("FK_CountInformations_CountId");
+
+            builder.Entity<ShoppingCart>()
+                .HasOne(p => p.Product)
+
+                .WithMany(d => d.ShoppingCarts)
+                .HasForeignKey(p => p.ProductId)
+                .HasConstraintName("FK_ShoppingCarts_ProductId");
         }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

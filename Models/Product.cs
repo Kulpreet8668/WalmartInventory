@@ -25,5 +25,9 @@ namespace WalmartInventory.Models
         //this connect bw depart and product
 
         public List<CountInformation> CountInformations { get; set; }
+
+        public List<ShoppingCart> ShoppingCarts { get; set; }
+
+
     }
 }
